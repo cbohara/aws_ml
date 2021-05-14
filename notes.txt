@@ -234,3 +234,127 @@ each variable need to examine what the value is
 - multivariant statistics
 -- look at correlation between different features
 
+visualizations
+- density plot
+- histogram
+- scatter plot - observe relationship between 2 variables
+
+identify relationships between different numerical values
+how can we quantify the (linear) relationship between variables? correlation matrix
+ranges from 1 to -1 
+if 1 then y = x (exactly the same)
+if -1 then y = -x (total opposites)
+
+correlation matrix heat maps
+adds colors to provide easier visual of correlation
+import seaborn as sns
+sns.heatmap(heatmap, yticklabels=col, xticklabels=col, cmap='PiYG', annot=True)
+
+data is always messy
+need to fully understand the data we are feeding into the models
+
+data issues
+- messy - special characters, data of different scales, mixed data > need to reshape so values are in diff columns
+- noisy - esp logging
+- biased - original data was not sampled
+- imbalanced - response variable of 1 or 0 is biased towards one value or another, outliers can be the real data but belongs elsewhere
+- correlated - highly correlated features = may confuse one thing is doing something when it's something else
+
+imputation = impute = replacing missing data with substituted values
+
+### Data Processing and Feature Engineering
+
+encoding catagorical variables to numbers
+color - green, red, blue
+fraud - true (1) or false (0)
+
+pandas supports a special data type called category
+however often need to manually provide number mapping variable to number
+
+ordinal - ordered - ex: S > M > L
+nominal - unordered - ex: color
+
+encoding ordinal values - can map text to numbers
+mapping = dict({'N': 0, 'S': 5, 'M': 10, 'L': 20})
+df['num_garden_size'] = df['garden_size'].map(mapping)
+
+from sklearn.preprocessing.LabelEncoder 
+built in lib maps categorical values to numbers
+
+encoding nominal to integers = bad idea because it implies something that is wrong and don't want ML to pickup on
+don't do 
+blue = 1
+green = 2
+red = 3
+
+from sklearn.preprocessing import OneHotEncoder
+OneHotEncoder() can be used to convert values to columns with binary values to make multiple features out of a single feature
+
+just like pd.get_dummies()
+df = pd.DataFrame({'Fruits': ['Apple', 'Banana', 'Banana', 'Mango', 'Banana']})
+df.get_dummies(df)
+
+	Fruits_Apple	Fruits_Banana	Fruits_Mango
+0	1				0				0
+1	0				1				0
+2	0				1				0
+3	0				0				1
+4	0				1				0
+
+keep in mind if there are too many features - like 50 states - then creates 50 columns - this may create a ton of columns
+
+pd.is_null().sum() will tell us how many missing values there are, and where they exist
+if missing values for any rows, use pd.dropna() in entirety or specify column pd.dropna(1)
+however may drop too much data = not enough features to feed the model
+
+filling in missing data - is it missing at random? or not?
+if not missing at random, why is it missing value? need to know before can impute best way to replace missing values
+if missing due to random reason, then impute them
+can use library functions
+sklearn.impute
+fancyimpute 
+
+once you have your data, you will have features = raw ingredients = rice
+feature engineering = create risotto from rice
+more of an art then a science - use intuition - don't overthink it
+rule of thumb - start with a lot of features and narrow down focus iteratively
+also avoid using too much manual logic = require a lot of work to maintain the feature
+
+ML algo not only apply to numerical or categorical variables, but are often applied to images or sound
+need to filter these data structures in order to fit business problem
+ex: image analysis - remove all unnecessary colors
+
+some algo like decision trees + random forest, aren't sensitive to different scaling of different features
+however others are so it is a good idea to rescale all feature to use the same scaling
+
+scaling is applied to the column
+
+from sklearn.preprocessing import StandardScaler
+scale = StandardScaler()
+
+many algo behave better with smaller values
+keeps outlier info but reduces impact! 
+
+normalizer is applied to a single row
+widely used in text analysis
+
+feature engineering - transformation
+polynomial transformations - used when you have multiple numerical values in your features
+from sklearn.preprocessing import PolynomialFeatures
+with higher order polynomials = lots of features = risk of overfitting the model = trying to force the curve to all data points unrealistically
+
+radial basis function - transforming original data through a center
+use some distance measure to indicate the new features 
+
+look into text-based features
+ex: product reviews
+few steps of preprocessing + data cleaning
+convert text into numerical values bc ML only accepts numerical values for model training + forecasting
+
+bag of words model
+does not keep track of the sequent of the words
+only the number count of each word = term frequency
+sklearn.feature_extraction.text.CountVectorizer
+
+when there are a huge number of words, use hashing
+sklearn.feature_extraction.text.HashingVectorizer
