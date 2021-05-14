@@ -1,4 +1,5 @@
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_breast_cancer
 
@@ -19,5 +20,8 @@ print(df.describe())
 print('check target variable properties')
 print(df['target'].value_counts())
 
-df.plot.scatter(x='mean radius', y='mean area')
+print('view relationship between 2 variables via scatter plot to explore relationship between potential features')
+v11 = 'mean texture'
+v12 = 'mean perimeter'
+df.plot.scatter(x=v11, y=v12)
 plt.show()
