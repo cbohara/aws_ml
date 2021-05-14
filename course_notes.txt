@@ -16,10 +16,10 @@ ML solution is only as good as the data that is driving it = high quality data n
 
 learning in machine learning refers to estimating the underlying function, f
 what is an underlying function? the mechanism used to define a specific target value based on input data attributes
-to establish the underlying function, you will use the training data set 
+to establish the underlying function, you will use the training data set
 training data set = provide a large amount of correctly labeled data = mapping input to expected output
 goal = given a training data set, find the best approximation of the underlying function
-best approximation = the machine learning model 
+best approximation = the machine learning model
 
 how do we define best approximation?
 there are different metrics based on the type of model
@@ -28,7 +28,7 @@ ultimately will select the appropriate metrics based on the specific problem
 prediction result - allows you to take action
 ex: home location prediction probability
 
-use ML when conventional programs are not available to handle given the available data 
+use ML when conventional programs are not available to handle given the available data
 this may be why home location model is not a best use case - this can be a simple algo
 
 just like humans learn/improve based on experience
@@ -40,7 +40,7 @@ supervised learning
 - target variable used to determine the truth
 - just like a teacher providing the correct labeling to the child
 - 2 categories of supervised learning
--- regression - always a numerical value (ex: avg final grade for a chemistry class) 
+-- regression - always a numerical value (ex: avg final grade for a chemistry class)
 -- classification - choose options (ex: pass/fail outcome for a chemistry class
 
 unsupervised learning
@@ -48,25 +48,25 @@ unsupervised learning
 - no involvement of human
 
 semi-supervised learning
-- have a mixture of labeled and unlabeled data 
+- have a mixture of labeled and unlabeled data
 
-reinforcement learning 
-- use rewards/penalities to help the ML algo learn 
+reinforcement learning
+- use rewards/penalities to help the ML algo learn
 
 ML workflow:
 formulate problem >
 data collection + exploratory analysis + data preprocessing + feature engineering >
 model training + model evaluation + model tuning + model debugging >
-productionisation 
+productionisation
 
 ML workflow above is very much an iterative process
 data collection - even if you have a large set of historical data, you may need more data for the specific business problem
 exploratory analysis - identify useful data points
-data preprocessing - clean the data, remove outliers, filling in missing values 
+data preprocessing - clean the data, remove outliers, filling in missing values
 feature engineering - more features are created from raw data + also used in modeling stage
 
 concepts of ML projects
-dataset itself - need large amount of high quality data 
+dataset itself - need large amount of high quality data
 in practice the data must be partitioned between training + model validation
 want to use data that is not groomed/selected for model validation process
 
@@ -78,11 +78,11 @@ label = target = outcome
 IMPORTANT - an abundance of high quality data is required for building successful machine learning models
 ensure consistency of data over time - is the data we are using with the problem we need to solve?
 accuracy - need to define features correctly to ensure expected target/label
-noisy - lots of fluctuations from input and output 
+noisy - lots of fluctuations from input and output
 missing - lots of ML algos can't deal with missing/impartial data - gotta provide the feature-label mapping
 outliers - may be errors, typos or may be real and just random
 
-model fitting 
+model fitting
 good fit - fits the data points precisely
 underfitting
 - too simple
@@ -102,9 +102,9 @@ overfitting
 - memorize the noise with the data, and then will try to extrapolate the noise to the real case
 - high variance - small amount of change in training data leads to a lot of changes in the model
 
-Amazon Sagemaker - addresses need for speed + scalability 
+Amazon Sagemaker - addresses need for speed + scalability
 
-linear methods 
+linear methods
 - used in ML due to their simplicity
 - input variables return just 1 answer
 linear regression - target outcome is numeric
@@ -119,7 +119,7 @@ linear regression - multivariant
 - scikit-learn implementation = sklearn.linear_model.LinearRegression
 https://scikit-learn.org/stable/
 
-logistic regression 
+logistic regression
 - response variable is binary
 - ex: yes or no
 - connect value of the feature to the binary output
@@ -152,7 +152,7 @@ is a high quality big data set available?
 acquiring new data can be a big, timely undertaking so need to plan accordingly
 
 what kind of ML approach is appropriate?
-determining which algo is used is important for training 
+determining which algo is used is important for training
 always good to feed into a few diff algos to see the outcome
 
 what are your goals?
@@ -164,18 +164,18 @@ need A/B testing data
 need to monitor performance of the model to ensure it is still operating as expected
 
 sampling - setting subset for training + testing data set
-labeling - identify outputs of your model - used for supervised machined learning 
+labeling - identify outputs of your model - used for supervised machined learning
 instance = example = data point
 
-sampling 
+sampling
 must be representative of the population
 best to get a random sample
 improve unbias likelihood
 stratified sampling - applies random sample to each sub population separately
 be mindful of seasonality + trends that may be transient and always changing
 
-avoid leakage 
-train/test bleed = inadvertent overlap of training + test data when sampling to create data sets 
+avoid leakage
+train/test bleed = inadvertent overlap of training + test data when sampling to create data sets
 training data is labeled
 test data is used to evaluate the machine learning model
 model test will show better performance than reality if using the training data because the model knows the specific target already
@@ -194,18 +194,18 @@ Amazon Mechanical Turk = labeling tool
 human intelligence on demand
 access to a global, on-demand, 24x7 workforce
 
-sampling + treatment assignment 
+sampling + treatment assignment
 random sampling = good representation of final population
-ex: clinical trial for a new drug 
+ex: clinical trial for a new drug
 effects of drug vs placebo
 want to make sure random sampling occurs that way you can definitely determine causation = drug had good impact
 if treatment is not random then you can't be definitive and may just ballpark correlation = less than ideal
 
 typical ML workflow
-business problems > ML problem framing > data collection > data prep > data viz + analysis > feature eng > model training > model evaluation > meets business goal? if so, then provide prediction, if not, then repeat 
+business problems > ML problem framing > data collection > data prep > data viz + analysis > feature eng > model training > model evaluation > meets business goal? if so, then provide prediction, if not, then repeat
 
 exploratory data analysis
-- get domain knowledge of the data or ask others who have the domain knowledge 
+- get domain knowledge of the data or ask others who have the domain knowledge
 - plan for data prep
 - determine data collection needs
 
@@ -215,11 +215,11 @@ ex: breast cancer data - map categorical diagnosis (malignant or benign) based o
 merge/join data
 can use pandas dataframe merge function to merge/join 2 datasets
 
-descriptive statistics 
+descriptive statistics
 features = columns in a dataset
 column name = feature attribute/name
 colume value = feature value
-overall stats = # of instances (# of rows), # of attributes (# of columns) 
+overall stats = # of instances (# of rows), # of attributes (# of columns)
 
 each variable need to examine what the value is
 - numerical attributes
@@ -241,7 +241,7 @@ visualizations
 
 identify relationships between different numerical values
 how can we quantify the (linear) relationship between variables? correlation matrix
-ranges from 1 to -1 
+ranges from 1 to -1
 if 1 then y = x (exactly the same)
 if -1 then y = -x (total opposites)
 
@@ -278,11 +278,11 @@ encoding ordinal values - can map text to numbers
 mapping = dict({'N': 0, 'S': 5, 'M': 10, 'L': 20})
 df['num_garden_size'] = df['garden_size'].map(mapping)
 
-from sklearn.preprocessing.LabelEncoder 
+from sklearn.preprocessing.LabelEncoder
 built in lib maps categorical values to numbers
 
 encoding nominal to integers = bad idea because it implies something that is wrong and don't want ML to pickup on
-don't do 
+don't do
 blue = 1
 green = 2
 red = 3
@@ -312,7 +312,7 @@ if not missing at random, why is it missing value? need to know before can imput
 if missing due to random reason, then impute them
 can use library functions
 sklearn.impute
-fancyimpute 
+fancyimpute
 
 once you have your data, you will have features = raw ingredients = rice
 feature engineering = create risotto from rice
@@ -333,7 +333,7 @@ from sklearn.preprocessing import StandardScaler
 scale = StandardScaler()
 
 many algo behave better with smaller values
-keeps outlier info but reduces impact! 
+keeps outlier info but reduces impact!
 
 normalizer is applied to a single row
 widely used in text analysis
@@ -344,7 +344,7 @@ from sklearn.preprocessing import PolynomialFeatures
 with higher order polynomials = lots of features = risk of overfitting the model = trying to force the curve to all data points unrealistically
 
 radial basis function - transforming original data through a center
-use some distance measure to indicate the new features 
+use some distance measure to indicate the new features
 
 look into text-based features
 ex: product reviews
