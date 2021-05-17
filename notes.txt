@@ -1,0 +1,24 @@
+https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/
+
+overfitting
+- models training data too well
+- too good to be true
+- this means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model
+- the problem is that these concepts do not apply to new data and negatively impact the models ability to generalize
+
+underfitting
+- a model that can neither model the training data nor generalize to new data
+- will be obvious as it will have poor performance
+
+https://machinelearningmastery.com/how-to-reduce-model-variance/
+
+bias 
+- assumptions in the learning algorithm that narrow the scope of what can be learned
+- this is useful as it can accelerate learning and lead to stable results
+- at the cost of the assumption differing from reality
+
+variance
+- refers to the sensitivity of the learning algorithm to the specifics of the training data
+- this is good as the model will be specialized to the data
+- at the cost of learning random noise and varying each time it is trained on different data
+

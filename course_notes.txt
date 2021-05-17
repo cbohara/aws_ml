@@ -85,12 +85,14 @@ outliers - may be errors, typos or may be real and just random
 model fitting
 good fit - fits the data points precisely
 underfitting
+- doesn't model the training data well enough
 - too simple
 - too few features
 - model is just not flexible to catch the features in the data
 - failure to capture important features
 - lack of fit in lots of regions
 overfitting
+- models the training too well
 - too complex/over-engineered
 - too many features
 - model is learning a lot from noisy data which may not exist in production
