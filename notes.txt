@@ -1,3 +1,17 @@
+https://www.freecodecamp.org/news/neural-networks-for-dummies-a-quick-intro-to-this-fascinating-field-795b1705104a/
+human learning = classical programming
+
+ex: write a program that determines diff between square + circle - write a program that can detect corners + apply it to the count of corners
+
+machine learning = learning from examples
+hope by providing a ton of high quality data with examples of input mapping to output that the ML algo can create a program by itself
+
+function = take input, apply logic, and output result
+neuron = function = basic building block of neural network
+
+neural network = a network of functions
+many functions with lots of inputs + outputs intertwined that feed each other
+
 https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/
 
 overfitting
@@ -86,3 +100,4 @@ then you can import this job with the SparkML Model Serving Container in a SageM
 MLeap = serialization format (convert objects to bytes) + execution engine for ML pipelines
 support Spark, scikit-learn, and tensorflow
 you can the deserialized back into Spark for batch-mode scoring or into MLeap runtime to power real-time API services
+

@@ -360,3 +360,27 @@ sklearn.feature_extraction.text.CountVectorizer
 
 when there are a huge number of words, use hashing
 sklearn.feature_extraction.text.HashingVectorizer
+
+### Model Training, Tuning, and Debugging
+
+# neural networks - network of functions
+convolutional - image recognition
+recurrent - for time series data
+
+# K-nearest neighbors
+k = square root of n 
+n = total number of data points
+find the closest k data points like the new input data point 
+
+K-nearest is non-parametric = no existing function to apply
+need to compare the data point to all other data points to determine the distance to each other data point
+so you need to keep the original data set for reference
+the more 
+
+as compared to parametric = function with parameters 
+just apply function over and over again with new input and get associated output
+
+suffers from the curse of dimensionality
+the more features you are trying to map, the more the data points are harder to recognize patterns between
+
+very computational + memory intense algo
