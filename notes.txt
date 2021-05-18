@@ -22,3 +22,67 @@ variance
 - this is good as the model will be specialized to the data
 - at the cost of learning random noise and varying each time it is trained on different data
 
+https://machinelearningmastery.com/what-are-generative-adversarial-networks-gans/
+
+Generative modeling 
+- unsupervised learning task
+- automatically discovering and learning the regularities or patterns in input data
+- the model can be used to generate or output new examples that plausibly could have been drawn from the original dataset
+
+https://en.wikipedia.org/wiki/Hyperparameter_optimization
+hyperparameter tuning = choosing a set of optimal hyperparameters for a learning algorithm
+hyperparameter = parameter used to control the learning process
+
+https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning.html
+model tuning = hyperparameter tuning
+automatic tuning finds the best version of the model by running many training jobs using the algorithm and hyperparameter ranges you specify
+
+in order to leverage automatic tuning you need to have a well defined ML problem with 
+an understanding of the algorithm you want to use +
+a clear understanding of how you measure success
+
+https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html
+can start hyperparameter tuning job using the SageMaker API
+need to provide ranges of hyperparameters to tune
+specify the objective metric for evaluating success
+
+
+https://aws.amazon.com/blogs/machine-learning/how-to-scale-sentiment-analysis-using-amazon-comprehend-aws-glue-and-amazon-athena/
+can use glue job to enrich raw data 
+ex: call Comprehend API to get sentiment analysis + store alongside the raw text as S3 output > read enriched S3 dataset into SageMaker
+
+https://www.displayr.com/gradient-boosting-the-coolest-kid-on-the-machine-learning-block/
+ML models can be fitted to data individually, or combined in an ensemble
+ensemble = combo of simple individual models that together make a more powerful new model
+
+boosting = method for creating an ensemble
+fit initial model to the data
+then a second model is built that focuses on accurately predicting the cases where the first model performs poorly
+the combo of these two models performs better than either model alone
+can do multiple combos
+best possible next model, when combined with previous models, minimizes prediction error
+gradient boosting arises because target outcomes are set based on a gradient of error with respect to the prediction
+each new model takes a step in the direction that minimizes prediction error
+
+https://blogs.gartner.com/paul-debeasi/files/2019/01/Train-versus-Inference.png
+training - create ML algo - learning from existing data
+inference - apply ML algo - learning to new data 
+
+https://machinelearningmastery.com/difference-between-algorithm-and-model-in-machine-learning/
+ML algo is a procedure run on data to create a ML model
+ML algo perform pattern recognition 
+ML algo learn from data = fit on a dataset 
+ML algo essentially creates a script to run with details specific to the data set
+
+ML model represents what was learned by the ML algo
+ML model is a thing that is saved after running the ML algo on training data
+ML model = program with specific details 
+ex: decision tree algo contains a tree of if-then statements with specific values
+
+https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
+you can run Spark ML jobs with AWS Glue from SageMaker notebook
+when you run Spark ML jobs on Glue, Spark ML pipeline is serialized into MLeap format
+then you can import this job with the SparkML Model Serving Container in a SageMaker inference pipeline
+MLeap = serialization format (convert objects to bytes) + execution engine for ML pipelines
+support Spark, scikit-learn, and tensorflow
+you can the deserialized back into Spark for batch-mode scoring or into MLeap runtime to power real-time API services
