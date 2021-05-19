@@ -101,3 +101,23 @@ MLeap = serialization format (convert objects to bytes) + execution engine for M
 support Spark, scikit-learn, and tensorflow
 you can the deserialized back into Spark for batch-mode scoring or into MLeap runtime to power real-time API services
 
+https://machinelearningmastery.com/k-fold-cross-validation/
+k = # of groups to split/fold the data into
+k = 10 = good default value
+
+cross validation = estimate the skill of a model on unseen data
+limit sample in order to estimate how the model is expected to perform in general on data not used during the training
+
+example when k = 3
+dataset = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
+shuffle + split into 3 folds/groups
+Fold1: [0.5, 0.2]
+Fold2: [0.1, 0.3]
+Fold3: [0.4, 0.6]
+
+Model1: Trained on Fold1 + Fold2, Tested on Fold3
+Model2: Trained on Fold2 + Fold3, Tested on Fold1
+Model3: Trained on Fold1 + Fold3, Tested on Fold2
+
+do not need to implement manually
+use scikit learn's KFold class

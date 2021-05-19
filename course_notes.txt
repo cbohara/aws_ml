@@ -384,3 +384,50 @@ suffers from the curse of dimensionality
 the more features you are trying to map, the more the data points are harder to recognize patterns between
 
 very computational + memory intense algo
+
+# linear support vector machines
+separate groups of data points by a line
+line - decision boundary = hyperplane
+support vectors - training data points closest to the boundary
+best case scenario - maximize the magin = distance between the hyperplan and the support vectors so the distinction between groups is very clear
+
+there is also non-linear support vector machine
+can force boundary but have to keep track of all data points = memory intensive
+
+# decision trees
+essentially a series of if else statements
+use feature and associated threshold to split tree
+ideal = binary split = largest information gain (IG) possible
+advantages - easy to interpret algo, flexible for a lot of problems 
+disadvanage - overfitting is common
+
+# random forest
+an example of an ensemble method
+train multiple models which generates multiple decision trees
+combine these decision trees until you get a majority decision on the best tree
+random forest randomly provides only a subset of features for each training model
+then at the end combine 
+this helps avoid overfitting the model to the data set
+it is expensive to train given the number of iterations required 
+sklearn.ensemble.RandoMForestClassifier
+
+it is rare that ML models work the first time
+we have to feed in different data + features, applying diff algos and hyperparameters to find the best model
+training + tuning = iterative process
+
+during tuning look for underfitting + overfitting
+why don't we use the test dataset multiple times? it is part of the training process
+if you try to make the model better by using the final test dataset, it makes the model look better than it really is (overfitting)
+
+initial training = use the training dataset = provide a large amount of correctly labeled data = mapping input to expected output for the model to learn from
+apply this training dataset on multiple model/hyperparameter/feature combos first to determine which performs best
+
+iterative training + tuning = use the validation dataset to help distinguish between best performer  
+
+finally = use the test dataset to provide a final test before deploying into prod
+
+ex: if you 100 data points 
+80 data points for training 
+20 data points for testing
+may not be enough
+if so, use k-fold cross-validation 
